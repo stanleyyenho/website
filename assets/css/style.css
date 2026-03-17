@@ -413,10 +413,24 @@ ul {
   margin-bottom: 8px;
 }
 
+.work-card-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.work-card-logo {
+  height: 30px;
+  width: 30px;
+  object-fit: contain;
+  object-position: left center;
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
 .work-card-company {
-  display: block;
   font-family: var(--font-serif);
-  font-size: 1.4375rem;
+  font-size: 1.875rem;
   font-weight: 500;
   color: var(--dark);
   line-height: 1.2;

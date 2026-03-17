@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    background: #FAF8F4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+  }
+  .blob:nth-child(1) {
+    width: 700px; height: 700px;
+    top: -200px; left: -150px;
+    background: radial-gradient(circle at center, #E4DDD0 0%, transparent 65%);
+  }
+  .blob:nth-child(2) {
+    width: 500px; height: 500px;
+    bottom: -100px; right: -100px;
+    background: radial-gradient(circle at center, #D4CCC0 0%, transparent 65%);
+  }
+  .blob:nth-child(3) {
+    width: 400px; height: 400px;
+    top: 40%; left: 38%;
+    background: radial-gradient(circle at center, #E8E2D5 0%, transparent 65%);
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .char {
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 300;
+    font-size: 180px;
+    color: #2E2C29;
+    line-height: 1;
+  }
+
+  .name {
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 300;
+    font-size: 22px;
+    letter-spacing: 0.2em;
+    color: #7A7570;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+  <div class="blob"></div>
+  <div class="blob"></div>
+  <div class="blob"></div>
+  <div class="content">
+    <div class="char">何</div>
+    <div class="name">Stanley Ho</div>
+  </div>
+</body>
+</html>
