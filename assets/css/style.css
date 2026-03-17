@@ -771,6 +771,8 @@ footer {
     grid-template-rows: auto auto auto auto auto;
     text-align: center;
     justify-items: center;
+    padding-top: calc(var(--nav-h) + 48px);
+    padding-bottom: 140px;
   }
 
   .hero-eyebrow { grid-row: 2; }
