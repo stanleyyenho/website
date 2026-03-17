@@ -328,16 +328,8 @@
         Life is hard enough, across any and all walks. I do not care who you are; if you need help, I am here. I naturally work the best with folks who share that philosophy. 
       </li>
       <li>
-        <strong>Novelty and Growth</strong>
+        <strong>Novelty</strong>
         I get bored very easily. I like getting good at things, being good at them for a bit, and then getting good at the next thing. I always want to sink my teeth into a new challenge.
-      </li>
-      <li>
-        <strong>Candor</strong>
-        Honesty isn't a prescription, it's a dialogue; I can always take away the pieces I find valuable, but I need to hear the whole puzzle to start picking away.
-      </li>
-      <li>
-        <strong>Tact</strong>
-         I firmly believe you can be truthful and helpful without being cruel or mean - there's a big difference between "you suck at this" and "I'm really excited to see you grow here".
       </li>
       <li>
         <strong>Grit</strong>
@@ -425,18 +417,6 @@
       window.addEventListener('scroll', updateNav, { passive: true });
       updateNav();
     }());
-
-    // Page fade transition
-    document.body.classList.add('page-visible');
-    document.querySelectorAll('a[href]').forEach(function (link) {
-      var href = link.getAttribute('href');
-      if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto')) return;
-      link.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.body.classList.remove('page-visible');
-        setTimeout(function () { window.location.href = href; }, 260);
-      });
-    });
 
   </script>
 

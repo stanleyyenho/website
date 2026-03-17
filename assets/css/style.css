@@ -3,13 +3,9 @@
    Japandi-inspired minimal portfolio
    ============================================================ */
 
-/* Page fade transition */
-body {
-  opacity: 0;
-  transition: opacity 0.25s ease;
-}
-body.page-visible {
-  opacity: 1;
+/* Cross-page fade transition */
+@view-transition {
+  navigation: auto;
 }
 
 /* 1. CSS Custom Properties */
