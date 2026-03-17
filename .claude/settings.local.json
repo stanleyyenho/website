@@ -12,7 +12,8 @@
       "Bash(echo \"done: $f\")",
       "Bash(done)",
       "Bash(ls -lh \"e:/Apps/Dev Projects/website/assets/img/portfolio/\"*.jpg)",
-      "Bash(sort -k5 -rh)"
+      "Bash(sort -k5 -rh)",
+      "Bash(find 'e:/Apps/Dev Projects/website/assets/' -name *.woff* -o -name *.ttf)"
     ]
   }
 }
