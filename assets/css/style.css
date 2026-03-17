@@ -146,9 +146,9 @@ ul {
 
 #main-nav.scrolled {
   background:
-    radial-gradient(ellipse 55% 180% at 12% 60%, #EAE2D8 0%, transparent 70%),
-    radial-gradient(ellipse 40% 160% at 58% 20%, #E4DAD0 0%, transparent 65%),
-    radial-gradient(ellipse 35% 140% at 88% 80%, #E2D9CE 0%, transparent 60%),
+    radial-gradient(ellipse 55% 180% at 12% 60%, #F0E8DC 0%, transparent 70%),
+    radial-gradient(ellipse 40% 160% at 58% 20%, #EAE0D4 0%, transparent 65%),
+    radial-gradient(ellipse 35% 140% at 88% 80%, #E8DDD0 0%, transparent 60%),
     #DDD4C8;
   border-bottom: 1px solid #CFC5B8;
 }
