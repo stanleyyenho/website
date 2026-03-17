@@ -51,9 +51,15 @@
       padding: 80px 40px 80px;
       display: grid;
       grid-template-columns: 1fr 280px;
+      grid-template-rows: auto auto 1fr;
       column-gap: 80px;
-      align-items: stretch;
+      align-items: start;
     }
+
+    .about-intro-eyebrow { grid-column: 1; grid-row: 1; }
+    .about-intro-heading  { grid-column: 1; grid-row: 2; }
+    .about-intro-body     { grid-column: 1; grid-row: 3; }
+    .about-photo          { grid-column: 2; grid-row: 1 / 4; align-self: stretch; }
 
     .about-intro-eyebrow {
       font-family: var(--font-sans);
@@ -97,7 +103,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center top;
+      object-position: bottom center;
       display: block;
     }
 
@@ -194,12 +200,21 @@
     @media (max-width: 768px) {
       .about-hero .section-inner {
         grid-template-columns: 1fr;
-        row-gap: 48px;
+        grid-template-rows: auto auto auto auto;
+        row-gap: 28px;
         padding: 60px 24px 60px;
+        justify-items: center;
+        text-align: center;
       }
+
+      .about-photo          { grid-column: 1; grid-row: 1; align-self: auto; }
+      .about-intro-eyebrow  { grid-column: 1; grid-row: 2; }
+      .about-intro-heading  { grid-column: 1; grid-row: 3; }
+      .about-intro-body     { grid-column: 1; grid-row: 4; text-align: left; }
 
       .about-photo {
         max-width: 240px;
+        width: 240px;
         aspect-ratio: 1/1;
       }
 
@@ -247,13 +262,11 @@
   <!-- ── Hero intro ── -->
   <section class="about-hero">
     <div class="section-inner">
-      <div>
-        <p class="about-intro-eyebrow">About me</p>
-        <h1 class="about-intro-heading">Operator, builder,<br>occasional designer.</h1>
-        <div class="about-intro-body">
-          <p>I'm Stanley — Canadian born, Toronto-grown. I've built my career in early stage startups predominantly across the U.S.; Over the past 5 years, I've scaled 3 companies (and counting!) from near-scratch, because there is no greater novelty and excitement than making something out of nothing.</p>
-          <p>I like being early. I like figuring out the thing no one has figured out yet. I like building teams and systems that outlast me and jumping on to the next exciting thing.</p>
-        </div>
+      <p class="about-intro-eyebrow">About me</p>
+      <h1 class="about-intro-heading">Operator, builder,<br>occasional designer.</h1>
+      <div class="about-intro-body">
+        <p>I'm Stanley — Canadian born, Toronto-grown. I've built my career in early stage startups predominantly across the U.S.; Over the past 5 years, I've scaled 3 companies (and counting!) from near-scratch, because there is no greater novelty and excitement than making something out of nothing.</p>
+        <p>I like being early. I like figuring out the thing no one has figured out yet. I like building teams and systems that outlast me and jumping on to the next exciting thing.</p>
       </div>
       <div class="about-photo">
         <img src="assets/img/about/about.jpg" alt="Stanley Ho">
