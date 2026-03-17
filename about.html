@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158662780-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-158662780-1');
+  </script>
+
+  <meta charset="utf-8">
+  <title>About — Stanley Ho</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="About Stanley Ho — Early Stage Startup & Product Operator">
+  <link rel="icon" href="assets/img/logo/favicon-1.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="About — Stanley Ho">
+  <meta property="og:description" content="Early Stage Startup & Product Operator">
+  <meta property="og:image" content="https://stanleyho.me/assets/img/og-image.png">
+  <meta property="og:url" content="https://stanleyho.me/about.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://stanleyho.me/assets/img/og-image.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=Noto+Serif+SC:wght@300&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="assets/css/themify-icons.css">
+
+  <!-- Main styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    /* ── About page layout ── */
+    .about-hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: var(--nav-h);
+    }
+
+    .about-hero .section-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 80px 40px 80px;
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      column-gap: 80px;
+      align-items: stretch;
+    }
+
+    .about-intro-eyebrow {
+      font-family: var(--font-sans);
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .about-intro-heading {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 4.5vw, 3.5rem);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--dark);
+      margin-bottom: 32px;
+    }
+
+    .about-intro-body {
+      font-family: var(--font-sans);
+      font-size: 1.0625rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--text);
+      max-width: 540px;
+    }
+
+    .about-intro-body p + p {
+      margin-top: 20px;
+    }
+
+    .about-photo {
+      position: relative;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .about-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .about-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 2px solid var(--accent);
+      border-radius: 2px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* ── Content sections ── */
+    .about-section {
+      padding: 96px 40px;
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    .about-section + .about-section {
+      border-top: 1px solid var(--border);
+    }
+
+    .about-section-label {
+      font-family: var(--font-sans);
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 48px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      column-gap: 80px;
+      row-gap: 56px;
+    }
+
+    .about-block-title {
+      font-family: var(--font-serif);
+      font-size: 1.375rem;
+      font-weight: 500;
+      color: var(--dark);
+      line-height: 1.3;
+      padding-top: 2px;
+    }
+
+    .about-block-body {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--text);
+    }
+
+    .about-block-body p + p {
+      margin-top: 16px;
+    }
+
+    .about-block-body strong {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    /* ── Values list ── */
+    .values-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px 40px;
+    }
+
+    .values-list li {
+      font-family: var(--font-sans);
+      font-size: 0.9375rem;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.6;
+      padding-left: 16px;
+      border-left: 1px solid var(--accent);
+    }
+
+    .values-list li strong {
+      display: block;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 768px) {
+      .about-hero .section-inner {
+        grid-template-columns: 1fr;
+        row-gap: 48px;
+        padding: 60px 24px 60px;
+      }
+
+      .about-photo {
+        max-width: 240px;
+        aspect-ratio: 1/1;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        row-gap: 40px;
+      }
+
+      .about-section {
+        padding: 64px 24px;
+      }
+
+      .values-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Ambient background -->
+  <div class="bg-canvas" aria-hidden="true">
+    <div class="bg-blob"></div>
+    <div class="bg-blob"></div>
+    <div class="bg-blob"></div>
+  </div>
+
+  <!-- Nav -->
+  <nav id="main-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">何</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#operator">Work</a></li>
+        <li><a href="index.html#design">Design</a></li>
+        <li><a href="about.html" class="nav-active">About</a></li>
+        <li><a href="https://www.linkedin.com/in/stanleyyenho/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ── Hero intro ── -->
+  <section class="about-hero">
+    <div class="section-inner">
+      <div>
+        <p class="about-intro-eyebrow">About me</p>
+        <h1 class="about-intro-heading">Operator, builder,<br>occasional designer.</h1>
+        <div class="about-intro-body">
+          <p>I'm Stanley — Canadian born, Toronto-grown. I've built my career in early stage startups predominantly across the U.S.; Over the past 5 years, I've scaled 3 companies (and counting!) from near-scratch, because there is no greater novelty and excitement than making something out of nothing.</p>
+          <p>I like being early. I like figuring out the thing no one has figured out yet. I like building teams and systems that outlast me and jumping on to the next exciting thing.</p>
+        </div>
+      </div>
+      <div class="about-photo">
+        <img src="assets/img/about/about.jpg" alt="Stanley Ho">
+      </div>
+    </div>
+  </section>
+
+  <div style="max-width:var(--max-w);margin:0 auto;padding:0 40px;">
+    <div style="border-top:1px solid var(--border);"></div>
+  </div>
+
+  <!-- ── Background ── -->
+  <div class="about-section">
+    <p class="about-section-label">Background</p>
+    <div class="about-grid">
+
+      <div class="about-block-title">Where I come from</div>
+      <div class="about-block-body">
+        <p>Proudly Canadian. Born to immigrants from Hong Kong and China, raised in Toronto. I learned to embrace culture and love diversity while <strong>breaking bread in the houses of childhood friends</strong>: Kenyan; Persian; Korean; Romanian; many more.</p>
+        <p>Studied at the Ivey Business School, Western University, London ON. Was not going to be a doctor, and this was other minimally acceptable career path.</p>
+      </div>
+
+      <div class="about-block-title">How I got here</div>
+      <div class="about-block-body">
+        <p>Learned very quickly after graduating that <strong>I did not do well in bureaucratic, hierarchichal environments</strong>. Barely lasted a year in consulting. 
+          <p> I had never planned to leave Canada (I'll 100% be back), but a <strong>chance date and a bold ultimatum convinced me to move to America with her</strong> - startups ended up being the medium through which I did it, and I've loved it ever since.</p>
+          <p> <i>(P.S. We've been together since 2020 and have a German Shepherd!)</i></p>
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── How I work ── -->
+  <div class="about-section">
+    <p class="about-section-label">How I work</p>
+    <div class="about-grid">
+
+      <div class="about-block-title">Operating style</div>
+      <div class="about-block-body">
+        <p><strong>Extreme bias to action, high agency</strong>. I like being pointed in a direction and told to let it rip. I do not operate well under micromanagement. I work hard to keep people in the loop for important decisions, but expect trust for small things.</p>
+        <p>I learn best through <strong>documenting brain dumps, then taking direct action</strong> - this lets me capture all the context (especially unwritten/implicit knowledge) a team has, then commit it to memory through practical application. It also helps me hit the ground running and generate immediate value.</p>
+      </div>
+
+      <div class="about-block-title">On teams</div>
+      <div class="about-block-body">
+        <p><strong>I give feedback candidly but kindly</strong>, and hope for the same back. Tell me if I'm fucking up; don't be an asshole about it. I may challenge some of your feedback/assumptions; I expect you to do the same back (none of us are perfect!)
+        <p>No matter what I do, I will always treat you as <strong>people first, colleagues second</strong>. Yes, we work hard; life is still short, we are still human.</p>
+        <p>In real life, I am a goofy goober (I swear to you. I will be serious about my work and literally nothing else LOL)</p>
+      </div>
+
+      <div class="about-block-title">On product</div>
+      <div class="about-block-body">
+        <p>I firmly believe you cannot be a good product builder without a <strong>deep sense of empathy for others</strong>. I approach all product building first-principles, user-first. I'm not afraid to make assumptions and test things out, but if we've built a whole MVP without talking to a paying customer or even engaged user, we've done something wrong.</p>
+        <p>Tactically,  I try to avoid overstructure where I can (I refuse to <strong>EVER</strong> t-shirt size a ticket), but absolutely believe in finding systems that work for the long-haul even if there's some initial pain (practical ticket templates, project workflows, timelines).</p>
+        <p><strong>I am pragmatic above all else</strong> - if something sucks and doesn't work, I will never keep it out of ego. <strong>Strong opinions held loosely, always</strong>.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── Values ── -->
+  <div class="about-section">
+    <p class="about-section-label">What I care about</p>
+    <ul class="values-list">
+      <li>
+        <strong>Family (Chosen or Not)</strong>
+        Community is the #1 priority in my life. Nothing will ever be more important than my partner, pet, friends, and family - and I think knowing that actually makes me a better operator.
+      </li>
+      <li>
+        <strong>Empathy</strong>
+        Life is hard enough, across any and all walks. I do not care who you are; if you need help, I am here. I naturally work the best with folks who share that philosophy. 
+      </li>
+      <li>
+        <strong>Novelty and Growth</strong>
+        I get bored very easily. I like getting good at things, being good at them for a bit, and then getting good at the next thing. I always want to sink my teeth into a new challenge.
+      </li>
+      <li>
+        <strong>Candor</strong>
+        Honesty isn't a prescription, it's a dialogue; I can always take away the pieces I find valuable, but I need to hear the whole puzzle to start picking away.
+      </li>
+      <li>
+        <strong>Tact</strong>
+         I firmly believe you can be truthful and helpful without being cruel or mean - there's a big difference between "you suck at this" and "I'm really excited to see you grow here".
+      </li>
+      <li>
+        <strong>Grit</strong>
+        I didn't go to Stanford, I didn't work at McKinsey, I was shit at networking. I've built a career off of figuring it out anyways. I will always build like there is no fallback.
+      </li>
+    </ul>
+  </div>
+
+  <!-- ── Outside work ── -->
+  <div class="about-section" style="padding-bottom:120px;">
+    <p class="about-section-label">Outside of work</p>
+    <div class="about-grid">
+
+      <div class="about-block-title">Mandate of Heaven</div>
+      <div class="about-block-body">
+        <p>I make clothing inspired by whatever I feel drawn to at a given point in my life. We've printed hoodies; t-shirts; hats, sweaters; inspired by mythology; anime; video games; modern art. All for friends and family, all sold at cost - just a creative outlet for me!</p>
+      </div>
+        <div class="about-block-title">Apolyon Product Lab</div>
+      <div class="about-block-body">
+        <p>My partner and I run a mini-product lab where we make stuff for ourselves. Little apps, decorations, hardware - little bits and bobs that spark joy!</p>
+        <p>Lately: We drew and framed our own prints inspired by our favorite restaurants, made an LED display to show subway arrival times, and vibe-coded a calorie-tracking app! </p>
+      </div>
+       <div class="about-block-title">Your Friend Stan</div>
+      <div class="about-block-body">
+        <p>I run a small blog to write prose and wax poetic about things in my life and how I feel about them. Sometimes polished, sometimes ugly. The writing isn't meant to be professional, just candid - in the hopes that somebody connects.</p>
+      </div>
+  <div class="about-block-title">Other things</div>
+      <div class="about-block-body">
+        <p>I love interior design (working on my apartment now). I play video games, guitar, and fetch (with my German Shepherd)! Love fashion, Formula 1, anime, anything between.
+        </p>
+        <p> Lately: I've been hosting a lot of dinner parties! Helping people connect and bond (as friends, unconditionally, in the most non-techy way possible) brings me a lot of joy.</p>
+      </div>
+
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/stanleyyenho/" target="_blank" rel="noopener" aria-label="LinkedIn"><span class="ti-linkedin"></span></a>
+        <a href="mailto:stanley_ho@outlook.com" aria-label="Email"><span class="ti-email"></span></a>
+      </div>
+      <a href="#" class="back-to-top scroll-hint-link" aria-label="Return to top">
+        <div class="scroll-chevrons back-to-top-chevrons">
+          <span class="chevron chevron-up"></span>
+          <span class="chevron chevron-up"></span>
+          <span class="chevron chevron-up"></span>
+        </div>
+        <span class="scroll-label">Back to top</span>
+      </a>
+      <p class="footer-copy">c/o Stanley Ho &middot; 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    // Nav toggle
+    document.getElementById('navToggle').addEventListener('click', function () {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    // Scroll entrance animations
+    var animEls = document.querySelectorAll('.anim');
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('is-visible'); observer.unobserve(e.target); }
+        });
+      }, { threshold: 0.08 });
+      animEls.forEach(function (el) { observer.observe(el); });
+    } else {
+      animEls.forEach(function (el) { el.classList.add('is-visible'); });
+    }
+
+    // Navbar scroll state
+    (function () {
+      var nav = document.getElementById('main-nav');
+      function updateNav() {
+        if (window.pageYOffset > 40) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      }
+      window.addEventListener('scroll', updateNav, { passive: true });
+      updateNav();
+    }());
+
+    // Page fade transition
+    document.body.classList.add('page-visible');
+    document.querySelectorAll('a[href]').forEach(function (link) {
+      var href = link.getAttribute('href');
+      if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto')) return;
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.body.classList.remove('page-visible');
+        setTimeout(function () { window.location.href = href; }, 260);
+      });
+    });
+
+  </script>
+
+</body>
+</html>

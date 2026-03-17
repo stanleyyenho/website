@@ -59,6 +59,7 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="#operator">Work</a></li>
         <li><a href="#design">Design</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="https://www.linkedin.com/in/stanleyyenho/" target="_blank" rel="noopener">LinkedIn</a></li>
       </ul>
     </div>
@@ -683,6 +684,18 @@
       window.addEventListener('scroll', updateNav, { passive: true });
       updateNav();
     }());
+
+    // Page fade transition
+    document.body.classList.add('page-visible');
+    document.querySelectorAll('a[href]').forEach(function (link) {
+      var href = link.getAttribute('href');
+      if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto')) return;
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.body.classList.remove('page-visible');
+        setTimeout(function () { window.location.href = href; }, 260);
+      });
+    });
   </script>
 
 </body>

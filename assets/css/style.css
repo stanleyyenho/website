@@ -3,6 +3,15 @@
    Japandi-inspired minimal portfolio
    ============================================================ */
 
+/* Page fade transition */
+body {
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+body.page-visible {
+  opacity: 1;
+}
+
 /* 1. CSS Custom Properties */
 :root {
   --bg:         #FAF8F4;   /* warm off-white, washi paper */
@@ -140,7 +149,11 @@ ul {
 }
 
 #main-nav.scrolled {
-  background: #DDD4C8;
+  background:
+    radial-gradient(ellipse 55% 180% at 12% 60%, #EAE2D8 0%, transparent 70%),
+    radial-gradient(ellipse 40% 160% at 58% 20%, #E4DAD0 0%, transparent 65%),
+    radial-gradient(ellipse 35% 140% at 88% 80%, #E2D9CE 0%, transparent 60%),
+    #DDD4C8;
   border-bottom: 1px solid #CFC5B8;
 }
 
@@ -178,6 +191,8 @@ ul {
   transition: color var(--ease);
 }
 .nav-links li a:hover { color: var(--dark); }
+.nav-links li a.nav-active { color: var(--dark); font-weight: 500; }
+#main-nav.scrolled .nav-links li a.nav-active { color: var(--white); font-weight: 500; }
 
 /* Hamburger */
 .nav-toggle {
@@ -272,7 +287,7 @@ ul {
 .hero-photo {
   position: relative;
   grid-column: 2;
-  grid-row: 2 / 5;    /* top aligns with name, bottom aligns with links */
+  grid-row: 1 / 5;    /* top aligns with eyebrow, bottom aligns with links */
   align-self: stretch;
   overflow: hidden;
 }
