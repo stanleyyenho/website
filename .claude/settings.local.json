@@ -14,7 +14,9 @@
       "Bash(ls -lh \"e:/Apps/Dev Projects/website/assets/img/portfolio/\"*.jpg)",
       "Bash(sort -k5 -rh)",
       "Bash(find 'e:/Apps/Dev Projects/website/assets/' -name *.woff* -o -name *.ttf)",
-      "Bash(curl -s \"https://unpkg.com/lenis@1.1.14/dist/lenis.min.js\" -o \"e:/Apps/Dev Projects/website/assets/js/lenis.min.js\")"
+      "Bash(curl -s \"https://unpkg.com/lenis@1.1.14/dist/lenis.min.js\" -o \"e:/Apps/Dev Projects/website/assets/js/lenis.min.js\")",
+      "Bash(identify e:/Apps/Dev Projects/website/assets/img/work/*.*)",
+      "Bash(identify assets/img/about/about.jpg assets/img/about/headshot.jpg)"
     ]
   }
 }
