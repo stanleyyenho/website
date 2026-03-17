@@ -798,7 +798,7 @@ footer {
     text-align: center;
     justify-items: center;
     padding-top: calc(var(--nav-h) + 48px);
-    padding-bottom: 140px;
+    padding-bottom: 200px;
   }
 
   .hero-eyebrow { grid-row: 2; }
@@ -837,8 +837,8 @@ footer {
     top: var(--nav-h);
     left: 0;
     right: 0;
-    background: var(--bg);
-    border-bottom: 1px solid var(--border);
+    background: #DDD4C8;
+    border-bottom: 1px solid #CFC5B8;
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
@@ -853,6 +853,7 @@ footer {
   .nav-links li a {
     display: block;
     padding: 14px 24px;
+    color: var(--dark) !important;
   }
 
   .nav-toggle {

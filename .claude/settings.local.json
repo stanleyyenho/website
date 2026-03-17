@@ -6,7 +6,13 @@
       "Bash(ffmpeg -version)",
       "Bash(command -v magick convert ffmpeg cwebp)",
       "Bash(npx --yes sharp-cli --version)",
-      "Bash(npx sharp-cli:*)"
+      "Bash(npx sharp-cli:*)",
+      "Bash(for f:*)",
+      "Bash(do npx:*)",
+      "Bash(echo \"done: $f\")",
+      "Bash(done)",
+      "Bash(ls -lh \"e:/Apps/Dev Projects/website/assets/img/portfolio/\"*.jpg)",
+      "Bash(sort -k5 -rh)"
     ]
   }
 }
