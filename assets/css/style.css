@@ -808,6 +808,11 @@ footer {
     width: 50%;
   }
 
+  /* Switch from center to flex-start so padding-top actually controls the gap */
+  #hero {
+    align-items: flex-start;
+  }
+
   .hero-inner {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto auto auto;
