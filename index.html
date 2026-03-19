@@ -31,9 +31,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300&text=%E4%BD%95&display=swap" rel="stylesheet">
 
-  <!-- Icons & Lightbox -->
+  <!-- Icons -->
   <link rel="stylesheet" href="assets/css/themify-icons.css">
-  <link rel="stylesheet" href="assets/css/lightbox.css">
+  <!-- lightbox.css loaded lazily when portfolio section is reached -->
 
   <!-- Main styles -->
   <link rel="stylesheet" href="assets/css/style.css">
@@ -547,9 +547,7 @@
   <!-- ============================================================
        SCRIPTS
        ============================================================ -->
-  <script src="assets/js/jquery-2.1.4.min.js"></script>
-  <script src="assets/js/lightbox.js"></script>
-  <script src="assets/js/jquery.isotope.min.js"></script>
+  <!-- jQuery/Isotope/Lightbox loaded lazily — see lazy loader below -->
   <script src="assets/js/lenis.min.js"></script>
   <script>
     // Smooth scroll (Lenis)
@@ -653,22 +651,50 @@
       });
     }());
 
-    // Portfolio filter via Isotope
-    $(function () {
-      var $grid = $('#portfolio-grid').isotope({
-        itemSelector: '.port-item',
-        layoutMode: 'fitRows',
-        percentPosition: true,
-        masonry: { columnWidth: '.grid-sizer' }
-      });
+    // Lazy-load jQuery + Isotope + Lightbox only when design section is near
+    (function () {
+      var portfolioLoaded = false;
+      function loadPortfolio() {
+        if (portfolioLoaded) return;
+        portfolioLoaded = true;
 
-      $('#filters').on('click', '.filter-btn', function () {
-        var filterValue = $(this).attr('data-filter');
-        $grid.isotope({ filter: filterValue });
-        $('.filter-btn').removeClass('active');
-        $(this).addClass('active');
-      });
-    });
+        // Lightbox CSS
+        var css = document.createElement('link');
+        css.rel = 'stylesheet';
+        css.href = 'assets/css/lightbox.css';
+        document.head.appendChild(css);
+
+        function loadScript(src, cb) {
+          var s = document.createElement('script');
+          s.src = src;
+          s.onload = cb || function () {};
+          document.body.appendChild(s);
+        }
+
+        loadScript('assets/js/jquery-2.1.4.min.js', function () {
+          loadScript('assets/js/lightbox.js');
+          loadScript('assets/js/jquery.isotope.min.js', function () {
+            var $grid = $('#portfolio-grid').isotope({
+              itemSelector: '.port-item',
+              layoutMode: 'fitRows',
+              percentPosition: true,
+              masonry: { columnWidth: '.grid-sizer' }
+            });
+            $('#filters').on('click', '.filter-btn', function () {
+              var filterValue = $(this).attr('data-filter');
+              $grid.isotope({ filter: filterValue });
+              $('.filter-btn').removeClass('active');
+              $(this).addClass('active');
+            });
+          });
+        });
+      }
+
+      var obs = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) { loadPortfolio(); obs.disconnect(); }
+      }, { rootMargin: '400px' });
+      obs.observe(document.getElementById('design'));
+    }());
 
     // Navbar scroll state — fallback for nav-link clicks and page load
     (function () {

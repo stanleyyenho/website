@@ -785,6 +785,22 @@ footer {
   }
 }
 
+/* ── Mobile performance: disable expensive effects ── */
+@media (max-width: 768px) {
+  /* Blob blur(110px) on large animated elements is the #1 mobile perf killer.
+     Stop the animation and reduce blur to a cheap value. */
+  .bg-blob {
+    animation: none;
+    filter: blur(40px);
+    will-change: auto;
+  }
+
+  /* Grain SVG texture adds a compositor layer — not worth it on mobile */
+  body::after {
+    display: none;
+  }
+}
+
 /* Tablet portrait */
 @media (max-width: 768px) {
   .grid-sizer,
