@@ -847,6 +847,11 @@ footer {
     padding: 72px 24px;
   }
 
+  /* Re-apply hero padding-top after the shorthand above resets it */
+  .hero-inner {
+    padding-top: calc(var(--nav-h) + 80px);
+  }
+
   .nav-inner {
     padding: 0 24px;
   }
