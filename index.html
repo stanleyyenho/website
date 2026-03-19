@@ -701,6 +701,9 @@
       var nav = document.getElementById('main-nav');
       var hero = document.getElementById('hero');
       function updateNav() {
+        // During a snap animation the wheel handler has already set the correct
+        // nav state — skip here to prevent the mid-animation flash.
+        if (snapLocked) return;
         // On mobile (touch devices) there's no wheel-based section snapping,
         // so go brown immediately on any scroll. On desktop, wait until past the hero.
         var threshold = window.innerWidth <= 768
