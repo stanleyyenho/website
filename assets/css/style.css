@@ -206,10 +206,10 @@ ul {
 .nav-toggle span {
   display: block;
   width: 20px;
-  height: 1.5px;
+  height: 1px;
   background: var(--dark);
   transition: var(--ease);
-  border-radius: 1px;
+  border-radius: 0;
 }
 
 
@@ -813,7 +813,7 @@ footer {
     grid-template-rows: auto auto auto auto auto;
     text-align: center;
     justify-items: center;
-    padding-top: calc(var(--nav-h) + 48px);
+    padding-top: calc(var(--nav-h) + 80px);
     padding-bottom: 200px;
   }
 

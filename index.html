@@ -701,8 +701,12 @@
       var nav = document.getElementById('main-nav');
       var hero = document.getElementById('hero');
       function updateNav() {
-        var heroBottom = hero.offsetTop + hero.offsetHeight;
-        if (window.pageYOffset >= heroBottom - 64) {
+        // On mobile (touch devices) there's no wheel-based section snapping,
+        // so go brown immediately on any scroll. On desktop, wait until past the hero.
+        var threshold = window.innerWidth <= 768
+          ? 20
+          : hero.offsetTop + hero.offsetHeight - 64;
+        if (window.pageYOffset >= threshold) {
           nav.classList.add('scrolled');
         } else {
           nav.classList.remove('scrolled');
