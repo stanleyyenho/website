@@ -562,6 +562,20 @@
     }
     requestAnimationFrame(lenisRaf);
 
+    // Nav state — driven entirely by Lenis scroll position, frozen during snaps to avoid mid-animation flash
+    var navEl = document.getElementById('main-nav');
+    var navFrozen = false;
+    function syncNav() {
+      if (window.pageYOffset > 20) navEl.classList.add('scrolled');
+      else navEl.classList.remove('scrolled');
+    }
+    lenis.on('scroll', function (e) {
+      if (navFrozen) return;
+      if (e.scroll > 20) navEl.classList.add('scrolled');
+      else navEl.classList.remove('scrolled');
+    });
+    syncNav();
+
     // Section snap — permanent and bidirectional; free scroll only within the last section going down
     var snapTargets = ['#hero', '#operator', '#design'];
     var snapLocked = false;
@@ -589,14 +603,12 @@
       if (snapLocked || next < 0) return;
 
       snapLocked = true;
-      // Update nav immediately when leaving/entering hero
-      var nav = document.getElementById('main-nav');
-      if (next === 0) nav.classList.remove('scrolled');
-      else nav.classList.add('scrolled');
+      navFrozen = true;
       lenis.scrollTo(document.querySelector(snapTargets[next]), {
         offset: -64,
         duration: 0.12,
-        easing: function (t) { return 1 - Math.pow(1 - t, 3); }
+        easing: function (t) { return 1 - Math.pow(1 - t, 3); },
+        onComplete: function () { navFrozen = false; syncNav(); }
       });
       setTimeout(function () { snapLocked = false; }, 300);
     }, { capture: true, passive: false });
@@ -696,28 +708,6 @@
       obs.observe(document.getElementById('design'));
     }());
 
-    // Navbar scroll state — fallback for nav-link clicks and page load
-    (function () {
-      var nav = document.getElementById('main-nav');
-      var hero = document.getElementById('hero');
-      function updateNav() {
-        // During a snap animation the wheel handler has already set the correct
-        // nav state — skip here to prevent the mid-animation flash.
-        if (snapLocked) return;
-        // On mobile (touch devices) there's no wheel-based section snapping,
-        // so go brown immediately on any scroll. On desktop, wait until past the hero.
-        var threshold = window.innerWidth <= 768
-          ? 20
-          : hero.offsetTop + hero.offsetHeight - 64;
-        if (window.pageYOffset >= threshold) {
-          nav.classList.add('scrolled');
-        } else {
-          nav.classList.remove('scrolled');
-        }
-      }
-      window.addEventListener('scroll', updateNav, { passive: true });
-      updateNav();
-    }());
   </script>
 
 </body>
