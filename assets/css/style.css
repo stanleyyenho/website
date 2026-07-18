@@ -40,6 +40,7 @@
 html {
   font-size: 17px;
   scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-h);
 }
 
 body {
@@ -87,6 +88,18 @@ body {
   top: 35%; left: 30%;
   background: radial-gradient(circle at center, #E8E2D5 0%, transparent 65%);
   animation: bgBlob3 45s ease-in-out infinite;
+}
+
+/* Seigaiha-family shippo pattern — faint washi motif, fades toward footer */
+.bg-canvas::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'128'%20height%3D'128'%20viewBox%3D'0%200%20128%20128'%3E%3Cg%20fill%3D'none'%20stroke%3D'%23A08C74'%20stroke-width%3D'1'%3E%3Ccircle%20cx%3D'0'%20cy%3D'0'%20r%3D'90.51'%2F%3E%3Ccircle%20cx%3D'0'%20cy%3D'128'%20r%3D'90.51'%2F%3E%3Ccircle%20cx%3D'128'%20cy%3D'0'%20r%3D'90.51'%2F%3E%3Ccircle%20cx%3D'128'%20cy%3D'128'%20r%3D'90.51'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+  background-size: 128px 128px;
+  opacity: 0.15;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 45%, #000 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 45%, #000 100%);
 }
 
 @keyframes bgBlob1 {
